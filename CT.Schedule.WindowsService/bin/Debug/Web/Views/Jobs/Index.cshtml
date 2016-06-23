@@ -1,0 +1,32 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+<div class="panel panel-default">
+    <div class="panel-heading">任务列表&nbsp;&nbsp;<a class="glyphicon glyphicon-plus" href="/EditJob" aria-hidden="true"></a></div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>任务ID</th>
+                <th>任务名</th>
+                <th>插件ID</th>
+                <th>执行计划</th>
+                <th>状态</th>
+                <th>创建时间</th>
+                <th>执行次数</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model){
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.ScheduleId</td>
+                <td>@item.RunPlan @item.Mode</td>
+                <td>@item.Status</td>
+                <td>@item.CreateTime</td>
+                <td>@item.RunTimes (S:@item.SuccessedTimes F:@item.FailedTimes)</td>
+                <td><a class="glyphicon glyphicon-pencil" href="/EditJob/@item.Id" aria-hidden="true"></a> <a  href="/RemoveJob/@item.Id" onclick="return confirm('确定要删除该任务吗？一旦删除就不可恢复。')" class="glyphicon glyphicon-trash" aria-hidden="true"></a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

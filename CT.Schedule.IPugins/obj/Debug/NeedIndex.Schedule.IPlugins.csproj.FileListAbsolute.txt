@@ -1,0 +1,5 @@
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule.IPugins\bin\Debug\NeedIndex.Schedule.IPlugins.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule.IPugins\bin\Debug\NeedIndex.Schedule.IPlugins.pdb
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule.IPugins\obj\Debug\ResolveAssemblyReference.cache
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule.IPugins\obj\Debug\NeedIndex.Schedule.IPlugins.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule.IPugins\obj\Debug\NeedIndex.Schedule.IPlugins.pdb

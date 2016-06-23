@@ -1,0 +1,4 @@
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\bin\Release\NeedIndex.Schedule.IPlugins.dll
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\bin\Release\NeedIndex.Schedule.IPlugins.pdb
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\obj\Release\NeedIndex.Schedule.IPlugins.dll
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\obj\Release\NeedIndex.Schedule.IPlugins.pdb

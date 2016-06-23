@@ -1,0 +1,13 @@
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\bin\Debug\CT.Schedule.IService.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\bin\Debug\CT.Schedule.IService.pdb
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\bin\Debug\CT.Schedule.Domain.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\bin\Debug\CT.Schedule.Infrastructure.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\bin\Debug\CT.Schedule.IPlugins.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\bin\Debug\log4net.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\bin\Debug\CT.Schedule.Domain.pdb
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\bin\Debug\CT.Schedule.Infrastructure.pdb
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\bin\Debug\CT.Schedule.IPlugins.pdb
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\bin\Debug\log4net.xml
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\obj\Debug\CT.Schedule.IService.csprojResolveAssemblyReference.cache
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\obj\Debug\CT.Schedule.IService.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IService\obj\Debug\CT.Schedule.IService.pdb

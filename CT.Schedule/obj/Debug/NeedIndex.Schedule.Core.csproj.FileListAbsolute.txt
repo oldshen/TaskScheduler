@@ -1,0 +1,16 @@
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Schedule.Core.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Schedule.Core.pdb
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\Common.Logging.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Core.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Data.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Schedule.IPlugins.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Schedule.Service.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Utility.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\Quartz.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Schedule.IPlugins.pdb
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Schedule.Service.pdb
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Utility.pdb
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\bin\Debug\NeedIndex.Utility.xml
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\obj\Debug\ResolveAssemblyReference.cache
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\obj\Debug\NeedIndex.Schedule.Core.dll
+F:\工作目录\开发目录\源代码\中国建材网2012\Tools\TaskScheduler\NeedIndex.Schedule\obj\Debug\NeedIndex.Schedule.Core.pdb

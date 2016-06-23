@@ -1,0 +1,3354 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CtCommon.Utility</name>
+    </assembly>
+    <members>
+        <member name="T:CtCommon.Utility.BasicConverter">
+            <summary>
+            基础数据转换类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToType``1(System.Object,``0)">
+            <summary>
+            尝试将对象转换为指定的类型 转换失败则返回默认值
+            </summary>
+            <typeparam name="T">目标类型</typeparam>
+            <param name="obj">待转换对象</param>
+            <param name="defaultValue">转换失败时返回的默认值</param>
+            <returns>转换的目标对象</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string str="123";
+                int ret=str.ToType<int>(0); //返回int:123
+                str="abc";
+                ret=str.ToType<int>(0);     //返回int:0
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToType``1(System.Object)">
+            <summary>
+            尝试将对象转换为指定的类型 转换失败则返回default(T)
+            </summary>
+            <typeparam name="T">目标类型</typeparam>
+            <param name="obj">待转换对象</param>
+            <returns>转换的目标对象</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string str="123";
+                int ret=str.ToType<int>(); //返回int:123
+                str="abc";
+                ret=str.ToType<int>();     //返回int:0
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.TryToInt32(System.String,System.Int32@,System.Int32)">
+            <summary>
+            将字符串转换为数字(int)
+            </summary>
+            <param name="str">待转换字符</param>
+            <param name="result">转换结果</param>
+             <param name="defaultval">转换失败时，返回默认值</param>
+            <returns>转换是否成功</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string str="abc";
+                int ret;
+                bool successed=str.TryToInt32(out ret); //false,ret=0;
+                
+                str="123";
+               successed=str.TryToInt32(out ret);   //true,ret=123;
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToInt32(System.String,System.Int32)">
+            <summary>
+            将字符串转换为数字(int)
+            </summary>
+            <param name="str">待转换字符</param>
+             <param name="defaultval">转换失败时，返回默认值</param>
+            <returns>返回转换后的值</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string str="123";
+                int ret=str.ToInt32(0); //return 123
+                
+                str="abc";
+                ret=abc.ToInt32(); //return 0;
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToIntArray(System.String,System.String)">
+             <summary>
+             将字符串分割成int数组
+             </summary>
+             <param name="str">待转换字符</param>
+             <param name="splitChar">分隔符</param>
+             <returns>返回整数数组</returns>
+             <example>
+            <code lange="c#">
+            <![CDATA[
+             string str="1,2,a,4";
+             int[] ret=str.ToIntArray(); //return:[1,2,0,4];
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToStringArray``1(``0[])">
+            <summary>
+            将传入数组转换为string类型数组
+            </summary>
+            <typeparam name="TInput">待转换值类型</typeparam>
+            <param name="inputArray">待转换数组</param>
+            <returns>转换后的字符型数组</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                int[] ary=new int[3]{1,2,3};
+                string[] ret=BasicConverter(ary);   //return :["1","2","3"]
+            
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.TryToInt64(System.String,System.Int64@,System.Int64)">
+            <summary>
+            将字符串转换为数字(Int64)
+            </summary>
+            <param name="str">待转换字符</param>
+            <param name="result">转换结果</param>
+             <param name="defaultval">转换失败时，返回默认值</param>
+            <returns>转换是否成功</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string str="123456789012";
+                long ret;
+                bool successed=str.TryToInt64(out ret); //return:123456789012
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToInt64(System.String,System.Int64)">
+            <summary>
+            将字符串转换为数字(Long)
+            </summary>
+            <param name="str">待转换字符</param>
+             <param name="defaultval">转换失败时，返回默认值</param>
+            <returns>返回转换后的值</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="123456789012";
+            long ret=str.ToInt64();// 返回：123456789012
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.TryToDate(System.String,System.DateTime@,System.String)">
+            <summary>
+            字符串转换为日期
+            </summary>
+            <param name="str">待转换字符</param>
+            <param name="result">转换结果</param>
+            <param name="format">日期格式</param>
+            <returns>是否转换成功,若转换失败，out日期为1900-01-01</returns>
+            <example>
+            <![CDATA[
+            string str="2104-08-28";
+            DateTime dt;
+            bool successed=str.TryToDate(out dt);
+            
+            str="20140828081559";
+            successed=str.TryToDate(out dt,"yyyyMMddHHmmss");    //dt:2014-08-28 08:15:59
+            
+            str="123";
+            successed=str.TryToDate(out dt); //false, dt:1900-01-01
+            ]]>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToDateTime(System.String,System.String)">
+            <summary>
+             字符串转换为日期
+            </summary>
+            <param name="str">字符串</param>
+            <param name="format">日期格式</param>
+            <returns>日期</returns>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToBool(System.String,System.Boolean)">
+            <summary>
+            将传入值转换为bool类型
+            </summary>
+            <param name="input">待转换值</param>
+            <param name="defValue">默认值，默认返回false</param>
+            <returns>转换后的值</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string str="1";
+                bool ret=str.ToBool();  //TRUE;
+                
+                str="true";
+                ret=str.ToBool();       //TRUE;
+                
+                str="0";
+                ret=str.ToBool();       //False;
+                
+                str="false";
+                ret=str.ToBool();       //False;
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToFloat(System.Object,System.Single)">
+            <summary>
+            将传入值转换为float类型
+            </summary>
+            <param name="input">待转换值</param>
+            <param name="defValue">默认值</param>
+            <returns>转换后的值</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string str="123.1";
+                float ret=str.ToFloat();
+                
+                int i=123;
+                ret=i.ToFloat();
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToDouble(System.Object,System.Double)">
+            <summary>
+            将传入值转换为double类型
+            </summary>
+            <param name="input">待转换值</param>
+            <param name="defValue">默认值</param>
+            <returns>转换后的值</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string str="123.1";
+                float ret=str.ToDouble();
+                
+                int i=123;
+                ret=i.ToDouble();
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicConverter.ToDecimal(System.Object,System.Decimal)">
+            <summary>
+            将传入值转换为decimal类型
+            </summary>
+            <param name="input">待转换值</param>
+            <param name="defValue">默认值</param>
+            <returns>转换后的值</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string str="123.1";
+                float ret=str.ToDecimal();
+                
+                int i=123;
+                ret=i.ToDecimal();
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="T:CtCommon.Utility.BasicValidator">
+            <summary>
+            基础验证类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsNullOrEmptyAndTrim(System.String)">
+            <summary>
+            检查是否为空字符串,并移除首尾空字符
+            </summary>
+            <param name="str">待检测字符</param>
+            <returns>true-是空字符串，false:非空字符串</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="";
+            bool ret=str.IsNullOrEmptyAndTrim();    //返回 true
+            
+            str="   ";
+            ret=str.IsNullOrEmptyAndTrim();    //返回 true
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsMatch(System.String,System.String)">
+            <summary>
+            正则表达式匹配
+            </summary>
+            <param name="str">待检查字符串</param>
+            <param name="pattern">表达式</param>
+            <returns>是否匹配成功</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            
+            string str="123";
+            string pattern="^\\d+$";
+            
+            bool isMatch=str.IsMatch(pattern);  //返回 True
+            
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.ContainsIgnoreCase(System.String,System.String)">
+            <summary>
+            忽略大小写匹配是否包含
+            </summary>
+            <param name="str">待检查字符串</param>
+            <param name="value">待检测包含的字符</param>
+            <returns>是否匹配成功</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            
+            string str="abcDEF";
+            string str1="cd";
+            bool isContain=str.ContainsIgnoreCase(str1);    //返回True
+            
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsIDCard(System.String)">
+             <summary>
+             判断身份证号码是否合法，默认严格验证，需要验证身份证号的校验位
+             </summary>
+             <param name="inputCard">身份证号码</param>
+             <returns>true or false</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             string idcard="123456789987654321"  //len:18
+             bool isIDCard=idCard.IsIDCard();    //False
+             
+             idcard="330719196804253671";    //真实身份证号
+             isIDCard=idCard.IsIDCard();    //True
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsMobile(System.String)">
+            <summary>
+            是否为手机号
+            </summary>
+            <param name="mobile">待验证字符串</param>
+            <returns>是否验证通过</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string mobile="13813813812";
+                bool isMobile=mobile.IsMobile();    //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsPhone(System.String)">
+            <summary>
+            是否为有效电话号码，支持格式8位和7位无区号电话号码和有区号电话号码
+            如：86711234,057186711234,0571-86711234
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>是否验证通过</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string phone="86711234";
+                bool ret=phone.IsPhone();   //True;
+                
+                phone="057186711234"
+                ret=phone.IsPhone();   //True;
+                
+                phone="0571-86711234"
+                ret=phone.IsPhone();   //True;
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsIP(System.String)">
+            <summary>
+            是否为ip字符串
+            </summary>
+            <param name="ip">ip字符串</param>
+            <returns>是否验证通过</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                
+                string ip="218.218.218.218";
+                bool ret=ip.IsIP(); //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsEmail(System.String)">
+            <summary>
+            是否为合法的Email地址
+            </summary>
+            <param name="email">待验证Email</param>
+            <returns>是否验证通过</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string email="test@g.cn";
+                bool ret=email.IsEmail();   //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsNumberArray(System.String)">
+            <summary>
+            判断是否为整数字符串集合
+            格式：1,2,3,4,5,6
+            </summary>
+            <param name="ids">待验证字符串</param>
+            <returns>是否验证通过</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="1,2,3,4,5,6";
+            bool ret=str.IsNumberArray();   //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsUnSafeSql(System.String)">
+            <summary>
+            是否安全(是否存在SQL注入) 存在返回true 不存在返回false<br/>
+            <i>建议所有SQL语句操作均使用参数化查询，避免SQL注入</i>
+            </summary>
+            <param name="str">待检测字符串</param>
+            <returns>如果存在SQL注入则返回True，否则返回Flase</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string sql="id=1--xp_cmdshell";
+                bool ret=sql.IsUnSafeSql(); //True:存在SQL注入风险
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsUrl(System.String)">
+            <summary>
+            是否为正确的Url(http/https/ftp)
+            </summary>
+            <param name="strUrl">要验证的Url</param>
+            <returns>判断结果</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="http://www.g.cn";
+            bool ret=str.IsUrl();       //True
+            
+            str="https://www.g.cn"      
+            ret=str.IsUrl();       //True
+            
+            str="ftp://www.g.cn"      
+            ret=str.IsUrl();       //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsDateTime(System.String)">
+            <summary>
+            是否是否为日期格式
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>是否验证通过</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="2014-08-28";
+            
+            bool ret=str.IsDateTime();      //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsChinese(System.String)">
+            <summary>
+            是否都为中文
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>是否验证通过</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="杭州";
+            bool ret=str.IsChinese();   //True
+            
+            str="hangzhou杭州";
+            ret=str.IsChinese();   //False
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsInt32(System.String)">
+            <summary>
+             验证传入值是否Int32整数
+            </summary>
+            <param name="input">待验证值</param>
+            <returns>是否为Int32整数</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="+123";
+            bool ret=str.IsInt32(); //True
+            
+            str="-123";
+             ret=str.IsInt32(); //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsInt64(System.String)">
+            <summary>
+             验证传入值是否Int64长整数
+            </summary>
+            <param name="input">待验证值</param>
+            <returns>是否为Int64长整数</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="+123";
+            bool ret=str.IsInt64(); //True
+            
+            str="-123";
+             ret=str.IsInt64(); //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsInteger(System.String)">
+            <summary>
+            是否为有效的整数
+            </summary>
+            <param name="str">待验证字符串</param>
+            <returns>是否为有效的整数</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="+123";
+            bool ret=str.IsInteger(); //True
+            
+            str="-123";
+             ret=str.IsInteger(); //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsFloat(System.String)">
+            <summary>
+             验证传入值是否float类型值
+            </summary> 
+            <param name="input">待验证值</param>
+            <returns>是否为float类型值</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="+123.1";
+            bool ret=str.IsFloat(); //True
+            
+            str="-123.1";
+             ret=str.IsFloat(); //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsDouble(System.String)">
+            <summary>
+             验证传入值是否double类型值
+            </summary>
+            <param name="input">待验证值</param>
+            <returns>是否为double类型值</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="+123.1";
+            bool ret=str.IsDouble(); //True
+            
+            str="-123.1";
+             ret=str.IsDouble(); //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsDecimal(System.String)">
+            <summary>
+             验证传入值是否decimal类型值
+            </summary>
+            <param name="input">待验证值</param>
+            <returns>是否为decimal类型值</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string str="+123.1";
+            bool ret=str.IsDecimal(); //True
+            
+            str="-123.1";
+             ret=str.IsDecimal(); //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.BasicValidator.IsMac(System.String)">
+             <summary>
+             检测是否为有效的MAC地址
+             </summary>
+             <param name="mac"></param>
+             <returns></returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+             string str="00-50-56-C0-00-08"
+             bool ret=str.IsMac();   //True
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="T:CtCommon.Utility.CookieHelper">
+            <summary>
+            COOKIE辅助类
+            作者：骆克春
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.GetCookieValue(System.String)">
+            <summary>
+            获取COOKIE值
+            </summary>
+            <param name="cookieName">名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieValue(System.String,System.String)">
+            <summary>
+            设置Cookie值，不存在则创建
+            </summary>
+            <param name="cookieName">COOKIE名称</param>
+            <param name="value">COOKIE值</param> 
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieValue(System.String,System.String,System.Double)">
+            <summary>
+            设置Cookie值，不存在则创建
+            </summary>
+            <param name="cookieName">COOKIE名称</param>
+            <param name="value">COOKIE值</param>
+            <param name="expireSeconds">过期时间 单位：秒</param>
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieValue(System.String,System.String,System.Double,System.String)">
+            <summary>
+            设置Cookie值，不存在则创建
+            </summary>
+            <param name="cookieName">COOKIE名称</param>
+            <param name="value">COOKIE值</param> 
+            <param name="expireSeconds">过期时间 单位：秒</param>
+            <param name="path">COOKIE路径</param> 
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieValue(System.String,System.String,System.DateTime)">
+            <summary>
+            设置Cookie值，不存在则创建
+            </summary>
+            <param name="cookieName">COOKIE名称</param>
+            <param name="value">COOKIE值</param> 
+            <param name="expireTime">过期时间(绝对)</param> 
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieValue(System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            设置Cookie值，不存在则创建
+            </summary>
+            <param name="cookieName">COOKIE名称</param>
+            <param name="value">COOKIE值</param> 
+            <param name="expireTime">过期时间(绝对)</param>
+            <param name="path">COOKIE路径</param> 
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieValue(System.String,System.String,System.String,System.Double)">
+            <summary>
+            设置Cookie值，不存在则创建
+            </summary>
+            <param name="cookieName">COOKIE名称</param>
+            <param name="value">COOKIE值</param>
+            <param name="domain">所属域</param>
+            <param name="expireSeconds">过期时间 单位：秒</param>
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieValue(System.String,System.String,System.String,System.Double,System.String)">
+            <summary>
+            设置Cookie值，不存在则创建
+            </summary>
+            <param name="cookieName">COOKIE名称</param>
+            <param name="value">COOKIE值</param>
+            <param name="domain">所属域</param>
+            <param name="expireSeconds">过期时间 单位：秒</param>
+            <param name="path">COOKIE路径</param> 
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieValue(System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            设置Cookie值，不存在则创建
+            </summary>
+            <param name="cookieName">COOKIE名称</param>
+            <param name="value">COOKIE值</param>
+            <param name="domain">所属域</param>
+            <param name="expireTime">过期时间(绝对)</param> 
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieValue(System.String,System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            设置Cookie值，不存在则创建
+            </summary>
+            <param name="cookieName">COOKIE名称</param>
+            <param name="value">COOKIE值</param>
+            <param name="domain">所属域</param>
+            <param name="expireTime">过期时间(绝对)</param>
+            <param name="path">COOKIE路径</param> 
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieValue(System.String,System.String,System.String,System.DateTime,System.String,System.Boolean)">
+            <summary>
+            设置Cookie值，不存在则创建
+            </summary>
+            <param name="cookieName">COOKIE名称</param>
+            <param name="value">COOKIE值</param>
+            <param name="domain">所属域</param>
+            <param name="expireTime">过期时间(绝对)</param>
+            <param name="path">COOKIE路径</param>
+            <param name="isHttpOnly">是否仅http请求访问</param>
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.GetCookieValueByKey(System.String,System.String)">
+            <summary>
+            获取COOKIE中某个键的值
+            </summary>
+            <param name="cookieName">cookie名</param>
+            <param name="key">键</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieKeyValue(System.String,System.String,System.String)">
+            <summary>
+            设置COOKIE某个键值，不存在则创建
+            </summary>
+            <param name="cookieName">Cookie名</param>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieKeyValue(System.String,System.String,System.String,System.Double)">
+            <summary>
+            设置COOKIE某个键值，不存在则创建
+            </summary>
+            <param name="cookieName">Cookie名</param>
+            <param name="key">键</param>
+            <param name="value">值</param>
+            <param name="expireSeconds">相对过期时间 单位：秒</param>
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.SetCookieKeyValue(System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            设置COOKIE某个键值，不存在则创建
+            </summary>
+            <param name="cookieName">Cookie名</param>
+            <param name="key">键</param>
+            <param name="value">值</param>
+            <param name="expireTime">绝对过期时间</param>
+        </member>
+        <member name="M:CtCommon.Utility.CookieHelper.DeleteCookie(System.String)">
+            <summary>
+            删除COOKIE
+            </summary>
+            <param name="cookieName">Cookie名</param>
+        </member>
+        <member name="T:CtCommon.Utility.DateTimeHelper">
+            <summary>
+            对 System.DateTime的扩展
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.ToInt(System.DateTime,System.String)">
+            <summary>
+            将日期按照指定的格式转换为数字
+            </summary>
+            <param name="dateTime">待转换日期</param>
+            <param name="format">转换格式</param>
+            <returns>转换的结果,转换失败则返回0</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.ToDateInt(System.DateTime)">
+            <summary>
+            获取日期部分并转换为整数(yyyyMMdd)
+            </summary>
+            <param name="dateTime">日期</param>
+            <returns>日期部分整数</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.ToTimeInt(System.DateTime)">
+            <summary>
+            获取时间部分并转换为整数(HHmmss)
+            </summary>
+            <param name="dateTime">日期</param>
+            <returns>时间部分整数</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.ToDateTime(System.Int32,System.Int32)">
+            <summary>
+            将整数类型的日期部分和时间部分合并成日期类型，
+            </summary>
+            <param name="datePart">日期部分，如 20140313</param>
+            <param name="timePart">如：91255 或101123</param>
+            <returns>日期</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            int date=20140828;
+            int time=92359;
+            
+            DateTime dt=DateTimeHelper.ToDateTime(date,time)    //返回 2014-08-28 09:23:59
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.TryToDate(System.Int32,System.DateTime@)">
+            <summary>
+            将8位整数转换为日期(yyyyMMdd)
+            </summary>
+            <param name="intDate">数字</param>
+            <param name="dateOut">日期</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.ToDateTime(System.Int32,System.String)">
+            <summary>
+            转换为日期格式
+            </summary>
+            <param name="intDate">数字日期或时间部分</param>
+            <param name="format">日期格式</param>
+            <returns>日期</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.ToDate(System.Int32)">
+            <summary>
+            将8位整数转换为日期(yyyyMMdd)
+            </summary>
+            <param name="intDate">数字</param>
+            <returns>日期</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.GetFirstDayOfThisYear(System.DateTime)">
+            <summary>
+            获得某年的第一天
+            </summary>
+            <param name="date">日期</param>
+            <returns>某年的第一天</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.GetFirstDayOfThisQuarter(System.DateTime)">
+            <summary>
+            获得某季度的第一天
+            </summary>
+            <param name="date">日期</param>
+            <returns>某季度的第一天</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.GetFirstDayOfThisMonth(System.DateTime)">
+            <summary>
+            获得某月的第一天
+            </summary>
+            <param name="date">日期</param>
+            <returns>某月的第一天</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.GetFirstDayOfThisWeek(System.DateTime)">
+            <summary>
+            获得某周的第一天
+            </summary>
+            <param name="date">日期</param>
+            <returns>某周的第一天</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.WeekOfYear(System.DateTime)">
+            <summary>
+            获取时间 是一年中的第几个星期
+            </summary>
+            <param name="date">日期</param>
+            <returns>获取时间 是一年中的第几个星期</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.ToUnixTime(System.DateTime,System.Boolean)">
+            <summary>
+            将DateTime时间格式转换为Unix时间戳格式
+            </summary>
+            <param name="dt">时间</param>
+            <param name="milliseconds">是否精确到毫秒</param>
+            <returns> Unix时间戳</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.ConvertTimeByUnix(System.Int64,System.Boolean)">
+            <summary>
+            将Unix时间戳转换为DateTime类型时间
+            </summary>
+            <param name="unixTime">Unix时间戳</param>
+            <param name="milliseconds">是否精确到毫秒</param>
+            <returns>返回日期</returns>
+        </member>
+        <member name="M:CtCommon.Utility.DateTimeHelper.DateDiff(System.DateTime,System.DateTime,CtCommon.Utility.DateInterval)">
+            <summary>
+            获取两个时间之间的间隔值
+            </summary>
+            <param name="startDate">起始日期</param>
+            <param name="endDate">结束日期</param>
+            <param name="interval">间隔方式</param>       
+            <returns>间隔值</returns>
+            <example>
+               <code lang="c#">
+            <![CDATA[
+                DateTime dt="2014-08-27 08:00:00";
+                DateTime dt1="2014-08-28 08:00:00";
+                
+                long day=dt1.DateDiff(dt1,DateInterval.Day);    //天数：1
+                long hour=dt1.DateDiff(dt1,DateInterval.Hour);  //小时：24
+            ]]>   
+            </code>
+            </example>
+        </member>
+        <member name="T:CtCommon.Utility.DateInterval">
+            <summary>
+            日期间隔
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.DateInterval.Day">
+            <summary>
+            天数
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.DateInterval.Hour">
+            <summary>
+            小时
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.DateInterval.Minute">
+            <summary>
+            分钟
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.DateInterval.Month">
+            <summary>
+            月
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.DateInterval.Quarter">
+            <summary>
+            季度
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.DateInterval.Second">
+            <summary>
+            秒
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.DateInterval.Week">
+            <summary>
+            周
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.DateInterval.Year">
+            <summary>
+            年
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.CustomComparison">
+            <summary>
+            自定义比较器(暂不公开)
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.CustomComparison.CreateComparer``2(System.Func{``0,``1})">
+            <summary>
+            创建比较器
+            </summary>
+            <typeparam name="T">元素类型</typeparam>
+            <typeparam name="V">比较器类型</typeparam>
+            <param name="keySelector">比较方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.CustomComparison.CreateComparer``2(System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+            <summary>
+            创建比较器
+            </summary>
+            <typeparam name="T">元素类型</typeparam>
+            <typeparam name="V">比较器类型</typeparam>
+            <param name="keySelector">比较方法</param>
+            <param name="comparer">比较器</param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.CustomEqualityComparer">
+            <summary>
+            扩展 IEqualityComparer( 暂不公开)
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.CustomEqualityComparer.CreateComparer``2(System.Func{``0,``1})">
+            <summary>
+            创建对象的相等比较。
+            </summary>
+            <typeparam name="T">比较对象元素类型</typeparam>
+            <typeparam name="V">比较器类型</typeparam>
+            <param name="keySelector">比较方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.CustomEqualityComparer.CreateComparer``2(System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            创建对象的相等比较
+            </summary>
+            <typeparam name="T">比较对象元素类型</typeparam>
+            <typeparam name="V">比较器类型</typeparam>
+            <param name="keySelector">比较方法</param>
+            <param name="comparer">比较器</param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.EnumHelper">
+            <summary>
+            枚举帮助类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.EnumHelper.GetTypeItemList``1">
+            <summary>
+            返回该枚举类型的所有枚举项成员以及描述 
+            </summary>
+            <typeparam name="TEnumType">枚举类型</typeparam>
+            <returns>枚举的所有项的描述信息</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public enum UserType{
+                
+                    [Description("普通会员")]
+                    Normal=0,
+                    
+                    [Description("高级会员")]
+                    VIP=1
+                }
+                
+                List<EnumItem> list=EnumHelper.GetTypeItemList<UserType>();
+                //返回：[{Value:0,Description:"普通会员",EnumName:"Normal"},{Value:1,Description:"高级会员",EnumName:"VIP"}]
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.EnumHelper.GetTypeItemList(System.Type)">
+            <summary>
+            返回该枚举类型的所有枚举项成员以及描述
+            </summary>
+            <param name="type">枚举类型</param>
+            <returns>枚举的所有项的描述信息</returns>
+        </member>
+        <member name="M:CtCommon.Utility.EnumHelper.GetDescription(System.Enum)">
+             <summary>
+            返回单枚举值的描述信息
+             </summary>
+             <param name="v">枚举值</param>
+             <returns>枚举值的描述信息</returns>
+             <example>
+             <code lang="c#">
+             <![CDATA[
+                 public enum UserType{
+                 
+                     [Description("普通会员")]
+                     Normal=0,
+                     
+                     [Description("高级会员")]
+                     VIP=1
+                 } 
+                 string desc=UserType.Normal.GetDescription();   //返回:普通会员
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:CtCommon.Utility.EnumHelper.GetValues(System.Enum)">
+            <summary>
+            返回按位组合枚举值 所构成的每一个值
+            </summary>
+            <param name="values">枚举值</param>
+            <returns>枚举值集合</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                [Flags]
+                public enum UserType{
+                    
+                    Normal=0,
+                    
+                    VIP=1,
+                    
+                    VIP2=2,
+                    
+                    VIP3=4,
+                    
+                    VIP4=8
+                }
+                
+                UserType userType=UserType.VIP1|UserType.VIP3;  //1,4
+                
+                var list =userType.GetValues();
+                  //返回：[1,4]
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.EnumHelper.GetDescriptions(System.Enum)">
+            <summary>
+             返回将按位组合枚举值的每一个值描述连接起来的字符串
+            </summary>
+            <param name="v">枚举值</param>
+            <returns>描述信息</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                [Flags]
+                public enum UserType{
+                    [Description("普通会员")]
+                    Normal=0,
+                    
+                    [Description("普通VIP")]
+                    VIP=1,
+                    
+                    [Description("一级VIP")]
+                    VIP2=2,
+                    
+                    [Description("二级VIP")]
+                    VIP3=4,
+                    
+                    [Description("三级VIP")]
+                    VIP4=8
+                }
+                
+                UserType userType=UserType.VIP1|UserType.VIP3;  //1,4
+                
+                var string =userType.GetDescriptions();
+                  //返回： 普通VIP,二级VIP
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="T:CtCommon.Utility.ReaderWriterCache`2">
+            <summary>
+            读写缓存
+            内部维护一个读写锁 实现一种如果存在则返回原来的数据否则就创建并且将其缓存的机制
+            </summary>
+            <typeparam name="TKey">键类型</typeparam>
+            <typeparam name="TValue">值类型</typeparam>
+        </member>
+        <member name="M:CtCommon.Utility.ReaderWriterCache`2.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.ReaderWriterCache`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="comparer">相等比较器</param>
+        </member>
+        <member name="M:CtCommon.Utility.ReaderWriterCache`2.FetchOrCreateItem(`0,CtCommon.Utility.ReaderWriterCache{`0,`1}.CreatorOrCache{`1})">
+            <summary>
+            如果存在则返回原来的数据否则就创建并且将其缓存
+            </summary>
+            <param name="key">键</param>
+            <param name="creator">创建器</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.ReaderWriterCache`2.FetchOrCreateItem(`0,CtCommon.Utility.ReaderWriterCache{`0,`1}.Creator{`1})">
+            <summary>
+            如果存在则返回原来的数据否则就创建并且将其缓存
+            </summary>
+            <param name="key">值</param>
+            <param name="creator">创建器</param>
+            <returns></returns>
+        </member>
+        <member name="P:CtCommon.Utility.ReaderWriterCache`2.Cache">
+            <summary>
+            缓存字典
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.ReaderWriterCache`2.CreatorOrCache`1">
+            <summary>
+            创建数据选择性的将其缓存
+            </summary>
+            <typeparam name="T">数据的类型</typeparam>
+            <param name="cacheResult">是否缓存数据</param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.ReaderWriterCache`2.Creator`1">
+            <summary>
+            创建数据
+            </summary>
+            <typeparam name="T">数据的类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.EnumItem">
+            <summary>
+            枚举项
+            </summary>
+        </member>
+        <member name="P:CtCommon.Utility.EnumItem.Value">
+            <summary>
+            枚举值
+            </summary>
+        </member>
+        <member name="P:CtCommon.Utility.EnumItem.EnumName">
+            <summary>
+            枚举名称
+            </summary>
+        </member>
+        <member name="P:CtCommon.Utility.EnumItem.Description">
+            <summary>
+            枚举的描述
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.EnumerableHelper">
+            <summary>
+            集合类型的扩展
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.EnumerableHelper.Contains``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            集合中是否包含满足条件的某项
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="list">集合对象</param>
+            <param name="predicate">判定条件</param>
+            <returns>是否存在</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                List<string> list={"1","3","5","7"};
+                
+                bool ret=list.Contains(c=>c=="3");  //True
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.EnumerableHelper.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            对IEnumerable&lt;T&gt;的每个元素执行指定操作
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="list">集合对象</param>
+            <param name="action">要执行的操作</param>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string[] list={"1","3","5","7"};
+                list.ForEach(c=>{
+                    Response.Write(c);
+                });
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.EnumerableHelper.ForEach``1(System.Collections.IEnumerable,System.Action{``0})">
+            <summary>
+            对IEnumerable的每个元素执行指定操作
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="list">集合对象</param>
+            <param name="action">要执行的操作</param>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                string[] list={"1","3","5","7"};
+                list.ForEach(c=>{
+                    Response.Write(c);
+                });
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.EnumerableHelper.Join``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.String)">
+            <summary>
+             在指定  IEnumerable`T 的每个元素之间串联指定的分隔符 System.String，从而产生单个串联的字符串。
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="list">集合对象</param>
+            <param name="toText">将T转换为文本</param>
+            <param name="separator">分隔符</param>
+            <returns>拼接字符串</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                List<DateTime> list=new List<DateTime>();
+                
+                string ret=list.Join(d=>d.ToString("yyyyMMdd"),",");
+            
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.EnumerableHelper.Join``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            在指定  IEnumerable`T 的每个元素之间串联指定的分隔符 System.String，从而产生单个串联的字符串。
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="list">集合对象</param>
+            <param name="separator">分割字符</param>
+            <returns>拼接字符串</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                int[] ary={1,2,3,4,5};
+                
+                string str=ary.Join();  //返回："1,2,3,4,5"
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.EnumerableHelper.Distinct``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            通过使用指定的 System.Collections.Generic.IEqualityComparer&lt;T&gt; 对值进行比较返回序列中的非重复元素。
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <typeparam name="V">比较器类型</typeparam>
+            <param name="source">集合对象</param>
+            <param name="keySelector">元素比较方法</param>
+            <param name="comparer">比较器</param>
+            <returns>去除重复元素的集合</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                UserInfo[] users=new UserInfo[10];
+                ary.Distinct(c => c.Name,StringComparer.OrdinalIgnoreCase);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.EnumerableHelper.Distinct``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            通过使用指定的 System.Collections.Generic.IEqualityComparer&lt;T&gt; 对值进行比较返回序列中的非重复元素。
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <typeparam name="V">比较器类型</typeparam>
+            <param name="source">集合对象</param>
+            <param name="keySelector">比较器</param>
+            <returns>去重后的集合</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                UserInfo[] users=new UserInfo[10];
+                ary.Distinct(c => c.Name);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="T:CtCommon.Utility.GuidHelper">
+            <summary>
+            GUID生成器
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.GuidHelper.NewComb">
+            <summary>
+            生成具有时序性的GUID
+            </summary>
+            <returns>GUID</returns>
+        </member>
+        <member name="M:CtCommon.Utility.GuidHelper.GetDateFromComb(System.Guid)">
+            <summary> 
+             将具有时序性GUID 转换成时间信息 
+            </summary> 
+            <param name="guid">包含时间信息的 COMB </param> 
+            <returns>时间</returns> 
+        </member>
+        <member name="T:CtCommon.Utility.HardDisk">
+            <summary>
+            获取硬盘序列号
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.HardDisk.GetVolumeInformation(System.String,System.String,System.Int32,System.Int32@,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            获取卷标
+            </summary>
+            <param name="lpRootPathName"></param>
+            <param name="lpVolumeNameBuffer"></param>
+            <param name="nVolumeNameSize"></param>
+            <param name="lpVolumeSerialNumber"></param>
+            <param name="lpMaximumComponentLength"></param>
+            <param name="lpFileSystemFlags"></param>
+            <param name="lpFileSystemNameBuffer"></param>
+            <param name="nFileSystemNameSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.HardDisk.GetVolOf(System.String)">
+            <summary>
+            根据硬盘卷标，获得硬盘序列号
+            </summary>
+            <param name="drvID">硬盘卷标</param>
+            <returns>硬盘序列号</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+            string disk=HardDisk.GetVolOf("C")  ;
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="T:CtCommon.Utility.HttpClient">
+            <summary>
+            Http模拟请求
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.HttpClient.GetResponseString(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Specialized.NameValueCollection,CtCommon.Utility.HttpClient.RequestMethod)">
+            <summary>
+             获得请求网址返回文本内容,默认UTF-8编码
+            </summary>
+            <param name="url">URL</param>
+            <param name="requestParameters">请求参数</param>
+            <param name="headers">请求头部信息</param>
+            <param name="method">GET/POST</param>
+              <returns>发生错误返回空字符</returns>
+        </member>
+        <member name="M:CtCommon.Utility.HttpClient.GetResponseString(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Specialized.NameValueCollection,CtCommon.Utility.HttpClient.RequestMethod,System.Text.Encoding)">
+            <summary>
+             获得请求网址返回文本内容
+            </summary>
+            <param name="url">URL</param>
+            <param name="requestParameters">请求参数</param>
+            <param name="headers">请求头部信息</param>
+            <param name="method">GET/POST</param>
+            <param name="encoding">编码</param>
+            <returns>发生错误返回空字符</returns>
+        </member>
+        <member name="M:CtCommon.Utility.HttpClient.BuildRequest(CtCommon.Utility.HttpClient.RequestMethod,System.UriBuilder)">
+            <summary>
+            创建请求实例
+            </summary>
+            <param name="method">请求方式</param>
+            <param name="uri">请求网址</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.HttpClient.BuildPostString(System.Net.HttpWebRequest@,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            生成提交的字符串
+            </summary>
+            <param name="request">HTTP请求实例</param>
+            <param name="requestParameters">请求参数值</param>
+        </member>
+        <member name="M:CtCommon.Utility.HttpClient.BuildQueryString(System.UriBuilder@,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+             生成HTTP GET的查询字符
+            </summary>
+            <param name="uri">请求网址</param>
+            <param name="requestParameters">查询参数值</param>
+            <returns></returns>
+        </member>
+        <member name="P:CtCommon.Utility.HttpClient.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.HttpClient.RequestMethod">
+            <summary>
+            请求方式
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.HttpClient.RequestMethod.GET">
+            <summary>
+            GET请求
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.HttpClient.RequestMethod.POST">
+            <summary>
+            POST请求
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.IPHelper">
+            <summary>
+            IP地址帮助类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.IPHelper.IPToInt(System.String)">
+            <summary>
+            将IP地址转换为整数
+            </summary>
+            <param name="ip">待转换IP地址</param>
+            <returns>转换结果</returns>
+        </member>
+        <member name="M:CtCommon.Utility.IPHelper.IPToLong(System.String)">
+            <summary>
+            将IP地址转换为长整数
+            </summary>
+            <param name="ip">待转换IP地址</param>
+            <returns>转换结果</returns>
+        </member>
+        <member name="M:CtCommon.Utility.IPHelper.IntToIP(System.Int32)">
+            <summary>
+            将Int数据转换成IP字符串
+            </summary>
+            <param name="ip">Int数据</param>
+            <returns>IP字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.IPHelper.LongToIP(System.Int64)">
+            <summary>
+            将Long数据转换成IP字符串
+            </summary>
+            <param name="ip_Int">Long格式IP</param>
+            <returns>IP字符串</returns>
+        </member>
+        <member name="T:CtCommon.Utility.ITransfer`1">
+            <summary>
+            可传递数据项的对象<br/>
+            可以使用在Page与Control之间进行数据传递
+            </summary>
+            <typeparam name="T">传递数据类型</typeparam>
+            <remarks>
+            <para>
+            用户控件：Header.ascx
+            </para>
+            <code lang="c#">
+            <![CDATA[
+                public partial class Header : System.Web.UI.UserControl, ITransfer<int>
+                {
+                    protected void Page_Load(object sender, EventArgs e)
+                    {
+                
+                    }
+                    /// <summary>
+                    /// 当前登录用户ID,有Page页面传递过来
+                    /// </summary>
+                    public int Data
+                    {
+                        get;
+                        set;
+                    }
+                }
+            ]]>
+            </code>
+            <para>
+            页面：default.aspx</para>
+            <code lang="C#">
+            <![CDATA[
+            string header=WebControlHelper.GetPartial("~/Controls/Header.ascx",100);    //获取Header.ascx输入字符串，并将100传递给Hedder.ascx
+            //该方式，在对于用户控件所需参数不确定时，比较有用。
+            ]]>
+            </code>
+            </remarks>
+        </member>
+        <member name="P:CtCommon.Utility.ITransfer`1.Data">
+            <summary>
+            传递的数据对象
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.JsonHelper">
+            <summary>
+            Json格式化帮助类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.JsonHelper.JSONDeserialize``1(System.String)">
+            <summary>
+            将指定的 JSON 字符串转换为 T 类型的对象
+            </summary>
+            <typeparam name="T">所生成对象的类型</typeparam>
+            <param name="str">要进行反序列化的 JSON 字符串</param>
+            <returns>反序列化的对象</returns>
+        </member>
+        <member name="M:CtCommon.Utility.JsonHelper.JSONDeserialize(System.String)">
+            <summary>
+            将指定的 JSON 字符串转换为对象图
+            </summary>
+            <param name="str">要进行反序列化的 JSON 字符串</param>
+            <returns>反序列化对象</returns>
+        </member>
+        <member name="M:CtCommon.Utility.JsonHelper.JSONSerialize(System.Object)">
+            <summary>
+            将对象进行JSON格式序列化
+            </summary>
+            <param name="obj">要序列化的对象</param>
+            <returns>JSON字符串</returns>
+        </member>
+        <member name="T:CtCommon.Utility.NamespaceDoc">
+            <summary>
+            本组件提供常用的操作方法<br/>
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.ScriptHelper">
+            <summary>
+            脚本帮助类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.ScriptHelper.Alert(System.String)">
+            <summary>
+            直接输出弹出框
+            </summary>
+            <param name="content">对话框内容</param>
+        </member>
+        <member name="M:CtCommon.Utility.ScriptHelper.AlertAndRedirect(System.String,System.String)">
+            <summary>
+            弹出JavaScript小窗口,并进行页面跳转
+            </summary>
+            <param name="message">窗口信息</param>
+            <param name="toURL">跳转地址</param>
+        </member>
+        <member name="M:CtCommon.Utility.ScriptHelper.AlertAndRedirect(System.String,System.String,System.String)">
+            <summary>
+            弹出JavaScript小窗口,并进行页面跳转
+            </summary>
+            <param name="message">窗口信息</param>
+            <param name="toURL">跳转地址</param>
+            <param name="target">框架名称</param>
+        </member>
+        <member name="M:CtCommon.Utility.ScriptHelper.Alert(System.Web.UI.Page,System.String)">
+            <summary>
+            显示消息提示对话框
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="msg">提示信息</param>
+        </member>
+        <member name="M:CtCommon.Utility.ScriptHelper.AlertAndRedirect(System.Web.UI.Page,System.String,System.String)">
+            <summary>
+            显示消息提示对话框，并进行页面跳转
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="msg">提示信息</param>
+            <param name="url">跳转的目标URL</param>
+        </member>
+        <member name="M:CtCommon.Utility.ScriptHelper.ResponseScript(System.Web.UI.Page,System.String)">
+            <summary>
+            输出自定义脚本信息
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="script">输出脚本</param>
+        </member>
+        <member name="M:CtCommon.Utility.ScriptHelper.ResponseScript(System.String)">
+            <summary>
+            输出自定义脚本信息
+            </summary>
+            <param name="script">输出脚本</param>
+        </member>
+        <member name="T:CtCommon.Utility.SecurityHelper">
+            <summary>
+            字符加解密工具类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.ToMD5(System.String,System.Text.Encoding)">
+            <summary>
+            返回 System.String 对象进行MD5加密后的32字符十六进制格式字符串
+            </summary>
+            <param name="str">要加密的字符串</param>
+            <param name="encode">编码</param>
+            <returns>返回加密字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.ToMD5(System.String)">
+            <summary>
+            返回 System.String 对象进行MD5加密后的32字符十六进制格式字符串,默认编码UTF8
+            </summary>
+            <param name="str">要加密的字符串</param>
+            <returns>返回加密字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.ToMD5Bit16(System.String,System.Text.Encoding)">
+            <summary>
+            返回 System.String 对象进行MD5加密后的16字符十六进制格式字符串
+            </summary>
+            <param name="str">要加密的字符串</param>
+            <param name="encode">编码</param>
+            <returns>返回加密字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.ToMD5Bit16(System.String)">
+            <summary>
+            返回 System.String 对象进行MD5加密后的16字符十六进制格式字符串,默认编码GB2312
+            </summary>
+            <param name="str">要加密的字符串</param>
+            <returns>返回加密字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.ToBase64Encode(System.String,System.String)">
+            <summary>
+            Base64加密
+            </summary>
+            <param name="str">待加密字符串</param>
+            <param name="encode">字符编码，默认UTD-8</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.FromBase64String(System.String,System.String)">
+            <summary>
+            Base64解密
+            </summary>
+            <param name="str">待解密字符串</param>
+            <param name="encode">字符编码，默认UTD-8</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.ToDesDecrypt(System.String,System.String)">
+            <summary>
+            DES解密
+            </summary>
+            <param name="text">需解密的密文</param>
+            <param name="key">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.ToDesEncrypt(System.String,System.String)">
+            <summary>
+            DES加密
+            </summary>
+            <param name="str">需加密的明文文本</param>
+            <param name="key">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.ToRSAEncrypt(System.String,System.String)">
+            <summary>
+            RSA加密
+            </summary>
+            <param name="encryptString">需要加密的文本</param>
+            <param name="xmlPrivateKey">加密私钥</param>
+            <returns>RSA公钥加密后的数据</returns>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.ToRSADecrypt(System.String,System.String)">
+            <summary>
+            RSA解密
+            </summary>
+            <param name="decryptString">需要解密的文本</param>
+            <param name="xmlPublicKey">解密公钥</param>
+            <returns>解密后的数据</returns>
+        </member>
+        <member name="M:CtCommon.Utility.SecurityHelper.CreateKey(System.String@,System.String@)">
+            <summary>
+            生成公钥、私钥
+            </summary>
+            <param name="privateKey">私钥</param>
+            <param name="publicKey">公钥</param>
+        </member>
+        <member name="T:CtCommon.Utility.SpellHelper">
+            <summary>
+            拼音帮助类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.SpellHelper.GetSpellCode(System.String,System.String,CtCommon.Utility.SpellOptions)">
+            <summary>
+            获取汉字的汉语拼音
+            </summary>
+            <param name="strChinese">欲转换的字符串</param>
+            <param name="spacing">每个拼音之间的间隔字符</param>
+            <param name="options">SpellOptions枚举值的按位 OR 组合</param>
+            <example>
+            <code>
+            string strChinese = "一只棕色狐狸跳过那只狗";
+            string result = Spell.MakeSpellCode(strChinese," " SpellOptions.EnableUnicodeLetter);
+            </code>
+            </example>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.SpellOptions">
+            <summary>
+            提供用于设置转换选项的枚举值。
+            </summary>
+            <value>
+            <code>FirstLetterOnly</code>
+            只转换拼音首字母，默认转换全部
+            </value>
+            <value>
+            <code>TranslateUnknowWordToInterrogation</code>
+            转换未知汉字为问号，默认不转换
+            </value>
+            <value>
+            <code>EnableUnicodeLetter</code>
+            保留非字母、非数字字符，默认不保留
+            </value>
+        </member>
+        <member name="F:CtCommon.Utility.SpellOptions.FirstLetterOnly">
+            <summary>
+             只转换拼音首字母，默认转换全部
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.SpellOptions.TranslateUnknowWordToInterrogation">
+            <summary>
+            转换未知汉字为问号，默认不转换
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.SpellOptions.EnableUnicodeLetter">
+            <summary>
+            保留非字母、非数字字符，默认不保留
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.SqlDataReaderHelper">
+            <summary>
+            DataReader扩展方法,实现高性能的ORM
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.SqlDataReaderHelper.ToEntity``1(System.Data.SqlClient.SqlDataReader,System.Action{``0,System.Data.SqlClient.SqlDataReader})">
+            <summary>
+            装载实体对象
+            </summary>
+            <typeparam name="T">实体对象类型</typeparam>
+            <param name="dr">SqlDataReader对象</param>
+            <param name="action">自定义操作</param>
+            <returns>实体对象</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public class UserInfo{
+                    public int ID{get;set;}
+                    public string Name{get;set;}
+                }
+                
+                string sql="select ID,Name,from user where ID=1";
+                using(SqlDataReader dr=SqlHelper.ExceuteDataReader(conn,CommandType.Text,sql)){
+                    UserInfo user=dr.ToEntity();
+                }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.SqlDataReaderHelper.ToEntity``1(System.Data.SqlClient.SqlDataReader,``0@,System.Action{``0,System.Data.SqlClient.SqlDataReader})">
+            <summary>
+            装载实体
+            </summary>
+            <typeparam name="T">实体对象类型</typeparam>
+            <param name="dr">SqlDataReader对象</param>
+            <param name="action">自定义操作</param>
+            <param name="model">实体对象</param>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public class UserInfo{
+                    public int ID{get;set;}
+                    public string Name{get;set;}
+                    
+                    public string Phone{get;set;}
+                }
+                 UserInfo user;
+                string sql="select ID,Name,from user where ID=1";
+                using(SqlDataReader dr=SqlHelper.ExceuteDataReader(conn,CommandType.Text,sql)){
+                     user=dr.ToEntity();
+                }
+                sql="select phone from usercontact where UserID=1";
+                using(SqlDataReader dr=SqlHelper.ExceuteDataReader(conn,CommandType.Text,sql)){
+                    dr.ToEntity(ref user);
+                }
+            ]]>
+            </code>
+            </example>        
+        </member>
+        <member name="M:CtCommon.Utility.SqlDataReaderHelper.ToEntityList``1(System.Data.SqlClient.SqlDataReader,System.Action{``0,System.Data.SqlClient.SqlDataReader})">
+            <summary>
+            装载实体集合
+            </summary>
+            <typeparam name="T">实体对象类型</typeparam>
+            <param name="dr">SqlDataReader对象</param>
+            <param name="action">自定义操作</param>
+            <returns>实体对象集合</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public class UserInfo{
+                    public int ID{get;set;}
+                    public string Name{get;set;}
+                }
+                
+                string sql="select top 10 ID,Name,from user";
+                using(SqlDataReader dr=SqlHelper.ExceuteDataReader(conn,CommandType.Text,sql)){
+                    var list=dr.ToEntityList();
+                }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.SqlDataReaderHelper.LoadEntity``1(System.Data.SqlClient.SqlDataReader,System.Collections.Generic.IDictionary{System.String,System.Func{``0,System.Object,System.Object}},``0@)">
+            <summary>
+            装载实体
+            </summary>
+            <typeparam name="T">实体对象类型</typeparam>
+            <param name="dr">SqlDataReader对象</param>
+            <param name="dic">缓存字典</param>
+            <param name="model">返回实体</param>
+        </member>
+        <member name="M:CtCommon.Utility.SqlDataReaderHelper.InitMap``1(System.Type)">
+            <summary>
+            初始化对象映射
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.ILFieldAccessor">
+            <summary>
+            通过 MSIL 指令生成的字段连接器
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.IMemberAccessor">
+            <summary>
+            对象字段或属性的连接器接口
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.IMemberAccessor.SetValue(System.Object,System.Object)">
+            <summary>
+            设置成员的值 如果为静态成员 instance 则为null
+            </summary>
+            <param name="instance"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CtCommon.Utility.IMemberAccessor.GetValue(System.Object)">
+            <summary>
+            获取成员的值 如果为静态成员 instance 则为null
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.ILFieldAccessor.GetFieldSetter(System.Reflection.FieldInfo)">
+            <summary>
+            获得字段设置器 
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.ILFieldAccessor.GetFieldGetter(System.Reflection.FieldInfo)">
+            <summary>
+            获得字段获取器方法
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.ILMethodInvoker">
+            <summary>
+            通过 MSIL 指令生成的方法调用器
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.IMethodInvoker">
+            <summary>
+            方法调用器接口
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.IMethodInvoker.Invoke(System.Object,System.Object[])">
+            <summary>
+            反射执行方法
+            </summary>
+            <param name="instance">实例对象</param>
+            <param name="parameters">方法参数</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:CtCommon.Utility.ILMethodInvoker.#ctor(System.Reflection.MethodBase)">
+            <summary>
+            
+            </summary>
+            <param name="methodInfo"></param>
+        </member>
+        <member name="M:CtCommon.Utility.ILMethodInvoker.EmitBox(System.Reflection.Emit.ILGenerator,System.Reflection.Emit.LocalBuilder)">
+            <summary>
+            处理装箱指令
+            </summary>
+            <param name="ilGen"></param>
+            <param name="var"></param>
+        </member>
+        <member name="M:CtCommon.Utility.ILMethodInvoker.EmitUnbox(System.Reflection.Emit.ILGenerator,System.Type)">
+            <summary>
+            处理拆箱指令
+            </summary>
+            <param name="ilGen"></param>
+            <param name="toType"></param>
+        </member>
+        <member name="M:CtCommon.Utility.ILMethodInvoker.GetMethodInvoker(System.Reflection.MethodBase)">
+            <summary>
+            
+            </summary>
+            <param name="methodInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.ILPropertyAccessor">
+            <summary>
+            通过 MSIL 指令生成的属性连接器
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.ILPropertyAccessor.SetValue(System.Object,System.Object)">
+            <summary>
+            给属性赋值
+            </summary>
+            <param name="instance"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CtCommon.Utility.ILPropertyAccessor.GetValue(System.Object)">
+            <summary>
+            获取属性值
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.ILPropertyAccessor.GetPropertySetter(System.Reflection.PropertyInfo)">
+            <summary>
+            获得属性设置器 
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.ILPropertyAccessor.GetPropertyGetter(System.Reflection.PropertyInfo)">
+            <summary>
+            获得属性访问方法
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.ILReflectorFactory">
+            <summary>
+            通过 MSIL 实现的反射器工厂
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.IReflectorFactory">
+            <summary>
+            反射器工厂
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.IReflectorFactory.GetFieldAccessor(System.Reflection.FieldInfo)">
+            <summary>
+            获取字段成员对象
+            </summary>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.IReflectorFactory.GetPropertyAccessor(System.Reflection.PropertyInfo)">
+            <summary>
+            获取属性成员对象
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.IReflectorFactory.GetMethodInvoker(System.Reflection.MethodBase)">
+            <summary>
+            获取方法成员对象
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.ILReflectorFactory.GetFieldAccessor(System.Reflection.FieldInfo)">
+            <summary>
+            获取字段成员对象
+            </summary>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.ILReflectorFactory.GetPropertyAccessor(System.Reflection.PropertyInfo)">
+            <summary>
+            获取属性成员对象
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.ILReflectorFactory.GetMethodInvoker(System.Reflection.MethodBase)">
+            <summary>
+            获取方法成员对象
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.Reflector">
+            <summary>
+            高性能反射器
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.Reflector.CreateInstance``1(System.Type[],System.Object[])">
+            <summary>
+            实例化对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="argTypes">构造函数中参数类型</param>
+            <param name="args">构造函数中参数</param>
+            <returns>实例化对象</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public class UserInfo{
+                    public int ID{get;set;}
+                }
+                UserInfo user=Reflector.CreateInstance<UserInfo>(); //高性能反射器
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.Reflector.GetField(System.Reflection.FieldInfo)">
+            <summary>
+            通过字段信息获得成员对象
+            </summary>
+            <param name="field">字段</param>
+            <returns>字段成员对象</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public class UserInfo{
+                    public int ID;
+                    
+                    public string Name;
+                }
+                UserInfo user= new UserInfo();
+                user.ID=1;
+                
+                Type type=typeof(UserInfo);
+                FiledInfo filed=type.GetField("ID");
+                var member=Reflector.GetField(field);
+                
+                int value=member.GetValue(user).ToType<int>();
+                
+                member.SetValue(user,2);
+                
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.Reflector.GetField(System.Type,System.String,System.Reflection.BindingFlags)">
+            <summary>
+            通过字段名获得成员连接器
+            </summary>
+            <param name="type">对象类型</param>
+            <param name="fieldName">字段名称</param>
+            <param name="bindingFlags">控制绑定标识</param>
+            <returns>字段信息对象</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public class UserInfo{
+                    public int ID;
+                    
+                    public string Name;
+                }
+                UserInfo user= new UserInfo();
+                user.ID=1;
+                var member=Reflector.GetField(typeof(UserInfo),"ID");
+                
+                int value=member.GetValue(user).ToType<int>();
+                
+                member.SetValue(user,2);
+                
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.Reflector.GetProperty(System.Type,System.String,System.Reflection.BindingFlags)">
+            <summary>
+            根据属性名称获取属性成员连接器
+            </summary>
+            <param name="type">对象类型</param>
+            <param name="propertyName">属性名称</param>
+            <param name="bindingFlags">控制绑定标识</param>
+            <returns>属性成员信息</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public class UserInfo{
+                    public int ID{get;set;}
+                    
+                    public string Name{get;set;}
+                }
+                UserInfo user= new UserInfo();
+                user.ID=1;
+                var member=Reflector.GetProperty(typeof(UserInfo),"ID");
+                
+                int value=member.GetValue(user).ToType<int>();
+                
+                member.SetValue(user,2);
+                
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.Reflector.GetProperty(System.Reflection.PropertyInfo)">
+            <summary>
+            通过属性信息获得成员连接器
+            </summary>
+            <param name="property">属性</param>
+            <returns>属性对象</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public class UserInfo{
+                    public int ID{get;set;}
+                    
+                    public string Name{get;set;}
+                }
+                UserInfo user= new UserInfo();
+                user.ID=1;
+                
+                PropertyInfo property=typeof(UserInfo).GetProperty("ID");
+                
+                var member=Reflector.GetProperty(property);
+                
+                int value=member.GetValue(user).ToType<int>();
+                
+                member.SetValue(user,2);
+                
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.Reflector.GetMethod(System.Reflection.MethodBase)">
+            <summary>
+            反射方法执行
+            </summary>
+            <param name="method">方法</param>
+            <returns>方法成员对象</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public class UserInfo{
+                    public int ID{get;set;}
+                    
+                    public string Name{get;set;}
+                    
+                    public void Print(DateTime dt){
+                        //输出
+                    }
+                }
+                UserInfo user= new UserInfo();
+                user.ID=1;
+                
+                MethodBase method=typeof(UserInfo).GetMethod("Print");
+                
+                var member=Reflector.GetMethod(method);
+                
+                member.Invoke(user,DateTime.Now);
+                
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.Reflector.GetMethod(System.Type,System.String,System.Reflection.BindingFlags)">
+            <summary>
+            根据方法名获取方法反射器
+            </summary>
+            <param name="type">对象类型</param>
+            <param name="methodName">方法名</param>
+            <param name="bindingFlags">控制绑定标识</param>
+            <returns>方法反射器</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                public class UserInfo{
+                    public int ID{get;set;}
+                    
+                    public string Name{get;set;}
+                    
+                    public void Print(DateTime dt){
+                        //输出
+                    }
+                }
+                UserInfo user= new UserInfo();
+                user.ID=1;
+                
+                var member=Reflector.GetMethod(typeof(UserInfo),"Print");
+                
+                member.Invoke(user,DateTime.Now);
+                
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="T:CtCommon.Utility.StringBuilderHelper">
+            <summary>
+            对 StringBuilder的扩展
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.StringBuilderHelper.StartsWith(System.Text.StringBuilder,System.String,System.StringComparison)">
+            <summary>
+            确定此实例的开头是否与指定的字符串匹配
+            </summary>
+            <param name="builder">StringBuilder的引用</param>
+            <param name="value">要比较的 System.String</param>
+            <param name="stringComparison">方法的某些重载要使用的区域、大小写和排序规则。</param>
+            <returns>是否以某些字符开始</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                StringBuilder strB=new StringBuilder("中国浙江杭州");
+                bool ret=strB.StartsWith("中国"); //TRUE
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.StringBuilderHelper.EndsWith(System.Text.StringBuilder,System.String,System.StringComparison)">
+            <summary>
+            确定此实例的结尾是否与指定的字符串匹配
+            </summary>
+            <param name="builder">StringBuilder的引用</param>
+            <param name="value">要比较的 System.String</param>
+            <param name="stringComparison">方法的某些重载要使用的区域、大小写和排序规则。</param>
+            <returns>是否以某些字符串结束</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                StringBuilder strB=new StringBuilder("中国浙江杭州");
+                bool ret=strB.StartsWith("杭州"); //TRUE
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.StringBuilderHelper.TrimEnd(System.Text.StringBuilder,System.String,System.StringComparison)">
+            <summary>
+            从当前 StringBuilder 对象移除数组中指定的一组字符的所有尾部匹配项。
+            </summary>
+            <param name="builder">StringBuilder的引用</param>
+            <param name="trimStr">要移除的 Unicode 字符数组或 null。</param>
+            <param name="stringComparison">方法的某些重载要使用的区域、大小写和排序规则。</param>
+            <returns>返回移除尾部数据后的项</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                StringBuilder strB=new StringBuilder("中国浙江杭州");
+                StringBuilder ret=strB.TrimEnd("杭州"); //返回："中国浙江"
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CtCommon.Utility.StringBuilderHelper.TrimStart(System.Text.StringBuilder,System.String,System.StringComparison)">
+            <summary>
+            从当前 StringBuilder 对象移除数组中指定的一组字符的所有首部匹配项。
+            </summary>
+            <param name="builder">StringBuilder的引用</param>
+            <param name="trimStr">要移除的 Unicode 字符数组或 null。</param>
+            <param name="stringComparison">方法的某些重载要使用的区域、大小写和排序规则。</param>
+            <returns>返回移除尾部数据后的项</returns>
+            <example>
+            <code lang="c#">
+            <![CDATA[
+                StringBuilder strB=new StringBuilder("中国浙江杭州");
+                StringBuilder ret=strB.TrimStart("中国"); //返回："浙江杭州"
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="T:CtCommon.Utility.StringHelper">
+            <summary>
+            String 扩展方法
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.StringHelper._transferredRule">
+            <summary>
+            需要转义的字符正则
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.StringHelper.numArray">
+            <summary>
+            数字
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.StringHelper.letterArray">
+            <summary>
+            字母
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.StringHelper.numberAndLetterArray">
+            <summary>
+            数字与字母混合
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.SubStringAndPaddingChar(System.String,System.Int32,System.Int32,System.Char,System.Int32)">
+            <summary>
+            截取字符串，并在末尾追加字符
+            </summary>
+            <param name="str">待操作字符串</param>
+            <param name="start">截取起始索引号</param>
+            <param name="len">截取长度</param>
+            <param name="paddingChar">追加字符</param>
+            <param name="repeat">追加长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.GetStringLength(System.String,CtCommon.Utility.StringHelper.SingleChineseLen)">
+            <summary>
+            获取字符串的长度
+            </summary>
+            <param name="str">字符串</param>
+            <param name="cLen">汉字长度，默认一个汉字当2个字符处理</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.GetSubString(System.String,System.Int32,CtCommon.Utility.StringHelper.SingleChineseLen)">
+            <summary>
+            截取字符串长度
+            </summary>
+            <param name="str">字符串</param>
+            <param name="count">截取的长度</param>
+            <param name="cLen">汉字长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.UrlEncode(System.String,System.Text.Encoding)">
+            <summary>
+            UrlEncode Url编码
+            </summary>
+            <param name="str">待编码字符串</param>
+            <param name="encoding">编码规则</param>
+            <returns>编码后的字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.UrlEncode(System.String)">
+            <summary>
+            UrlEncode Url编码,默认UTF-8编码
+            </summary>
+            <param name="str">待编码字符串</param>
+            <returns>编码后的字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.UrlDecode(System.String,System.Text.Encoding)">
+            <summary>
+            UrlDecode Url解码
+            </summary>
+            <param name="str">待解码字符串</param>
+            <param name="encoding">解码规则</param>
+            <returns>解码后的字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.UrlDecode(System.String)">
+            <summary>
+            UrlDecode Url解码,默认UTF-8编码
+            </summary>
+            <param name="str">待解码字符串</param>
+            <returns>解码后的字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.SuperDecode(System.String)">
+            <summary>
+            超级解码(不用关心字符是UTF-8、Unicode或GB2312编码格式)，在分析不同搜索引擎来源的关键词时特别有用
+            </summary>
+            <param name="str">待解码字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.RemoveHtml(System.String)">
+            <summary>
+            移除所有HTML标记
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.RemoveInvisibleChar(System.String)">
+            <summary>
+            移除不可见字符
+            </summary>
+            <param name="str">待操作字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.ToJavascriptString(System.String,System.Boolean)">
+            <summary>
+            返回 System.String 对象转义为Javascript脚本字符串常量之后的字符串
+            </summary>
+            <param name="str">一个 System.String 引用</param>
+            <param name="addDoubleQuotes">是否添加双引号</param>
+            <returns>返回js可输出的字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.HideMobile(System.String)">
+            <summary>
+            获取隐藏中间数字的手机号码
+            </summary>
+            <param name="mobile">手机号码</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.HideEmail(System.String)">
+            <summary>
+            获得隐藏部分邮箱名称后的Email地址
+            </summary>
+            <param name="email">Email地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.GetRandCode(System.Int32,CtCommon.Utility.StringHelper.RandCodeType)">
+            <summary>
+            获取随机字符串
+            </summary>
+            <param name="length">字符串长度</param>
+            <param name="randCodeType">字符类型</param>
+            <returns>返回生成的字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.ToSBC(System.String)">
+            <summary>
+            转全角(SBC case)
+            </summary>
+            <param name="input">任意字符串</param>
+            <returns>全角字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.ToDBC(System.String)">
+            <summary>
+            转半角(DBC case)
+            </summary>
+            <param name="input">任意字符串</param>
+            <returns>半角字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.StringHelper.CommaToSerial">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.StringHelper.SingleChineseLen">
+            <summary>
+            单个汉字长度
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.StringHelper.SingleChineseLen.ONE">
+            <summary>
+            1位
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.StringHelper.SingleChineseLen.TWO">
+            <summary>
+            2位 一个中文按2个字符计算
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.StringHelper.RandCodeType">
+            <summary>
+            随机字符串类型
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.StringHelper.RandCodeType.NUMBER">
+            <summary>
+            仅数字
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.StringHelper.RandCodeType.LETTER">
+            <summary>
+            字母
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.Validate.BooleanValidationHelper">
+            <summary>
+            bool类型数据验证
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.BooleanValidationHelper.IsTrue(CtCommon.Utility.Validate.ValidationHelper{System.Boolean},System.String)">
+            <summary>
+            验证是否为True
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.Validate.DateTimeValidationHelper">
+            <summary>
+            日期数据验证
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.DateTimeValidationHelper.NotLessThen(CtCommon.Utility.Validate.ValidationHelper{System.DateTime},System.DateTime,System.String)">
+            <summary>
+            验证日期不小于某个日期
+            </summary>
+            <param name="current"></param>
+            <param name="maxDate">与之比较的日期，必须小于该日期</param>
+            <param name="errMsg">自定义错误提示信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.DateTimeValidationHelper.NotMoreThen(CtCommon.Utility.Validate.ValidationHelper{System.DateTime},System.DateTime,System.String)">
+            <summary>
+            验证日期不大于某个日期
+            </summary>
+            <param name="current"></param>
+            <param name="minDate">与之比较的日期，必须大于该日期</param>
+            <param name="errMsg">自定义错误提示信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.Validate.IntValidationHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.IntValidationHelper.Min(CtCommon.Utility.Validate.ValidationHelper{System.Int32},System.Int32,System.String)">
+            <summary>
+            验证<see cref="T:System.Int32"/>类型的参数的值大于一定值.    
+            </summary>
+            <param name="current">用于验证的<see cref="T:CtCommon.Utility.Validate.ValidationHelper`1"/></param>
+            <param name="min">最小值</param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.IntValidationHelper.Max(CtCommon.Utility.Validate.ValidationHelper{System.Int32},System.Int32,System.String)">
+            <summary>
+            验证<see cref="T:System.Int32"/>类型的参数的值小于一定值.    
+            </summary>
+            <param name="current">用于验证的<see cref="T:CtCommon.Utility.Validate.ValidationHelper`1"/></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <param name="max">最大值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.IntValidationHelper.Range(CtCommon.Utility.Validate.ValidationHelper{System.Int32},System.Int32,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="current"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.IntValidationHelper.EqualTo(CtCommon.Utility.Validate.ValidationHelper{System.Int32},System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="current"></param>
+            <param name="value"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.Validate.ObjectValidationHelper">
+            <summary>
+            通用类型数据验证
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.ObjectValidationHelper.NotNull``1(CtCommon.Utility.Validate.ValidationHelper{``0},System.String)">
+            <summary>
+            验证数据不能为null
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="current"></param>
+            <param name="errMsg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.ObjectValidationHelper.EqualTo``1(CtCommon.Utility.Validate.ValidationHelper{``0},``0,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="current"></param>
+            <param name="compareValue"></param>
+            <param name="compareName"></param>
+            <param name="errMsg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.Validate.StringValidationHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.NotEmpty(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>    
+            验证<see cref="T:System.String"/>类型的参数不为空.    
+            </summary>    
+            <param name="current">用于验证的<see cref="T:CtCommon.Utility.Validate.ValidationHelper`1"/></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns><paramref name="current"/>的引用以方便链式调用.</returns>    
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.MaxLength(CtCommon.Utility.Validate.ValidationHelper{System.String},System.Int32,System.String)">
+            <summary>    
+            验证<see cref="T:System.String"/>类型的参数的长度小于一定值.    
+            </summary>    
+            <param name="current">用于验证的<see cref="T:CtCommon.Utility.Validate.ValidationHelper`1"/></param>    
+            <param name="length">可行的最大长度(包括此值).</param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns><paramref name="current"/>的引用以方便链式调用.</returns>    
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.MinLength(CtCommon.Utility.Validate.ValidationHelper{System.String},System.Int32,System.String)">
+            <summary>    
+            验证<see cref="T:System.String"/>类型的参数的长度大于一定值.    
+            </summary>    
+            <param name="current">用于验证的<see cref="T:CtCommon.Utility.Validate.ValidationHelper`1"/></param>    
+            <param name="length">可行的最小长度(包括此值).</param>    
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns><paramref name="current"/>的引用以方便链式调用.</returns>    
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.EqualTo(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String,System.String,System.String)">
+            <summary>
+            验证当前值是否与某个值相等
+            </summary>
+            <param name="current"></param>
+            <param name="mEqualto"></param>
+            <param name="name"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.NotEqualTo(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String,System.String,System.String)">
+            <summary>
+            不等于
+            </summary>
+            <param name="current"></param>
+            <param name="mEqualto"></param>
+            <param name="name"></param>
+            <param name="errMsg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.NotContains(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String,System.String,System.String)">
+            <summary>
+            不包含
+            </summary>
+            <param name="current"></param>
+            <param name="subValue"></param>
+            <param name="name"></param>
+            <param name="errMsg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.LengthRange(CtCommon.Utility.Validate.ValidationHelper{System.String},System.Int32,System.Int32,System.String)">
+            <summary>    
+            验证<see cref="T:System.String"/>类型的参数的长度在一定值之间.    
+            </summary>    
+            <param name="current">用于验证的<see cref="T:CtCommon.Utility.Validate.ValidationHelper`1"/></param>    
+            <param name="minLength">可行的最小长度(包括此值).</param>    
+            <param name="maxLength">可行的最大长度(包括此值).</param>   
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param> 
+            <returns><paramref name="current"/>的引用以方便链式调用.</returns>    
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.ExistSqlIn(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>
+            验证<see cref="T:System.String"/>存在SQL注入.    
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.IsIP(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>
+            验证<see cref="T:System.String"/>是否是IP地址.   
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.IsEmail(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>
+            验证<see cref="T:System.String"/>是否是合法的Email.   
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.IsUrl(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>
+            验证<see cref="T:System.String"/>是否是合法的Url.   
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.IsDateTime(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>
+            验证<see cref="T:System.String"/>是否是有效的日期格式数据.   
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.IsIDCard(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>
+            验证<see cref="T:System.String"/>是否是有效的身份证号码.   
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.IsChinese(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>
+            验证<see cref="T:System.String"/>是否是中文.   
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.IsPhone(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>
+            验证<see cref="T:System.String"/>是否为电话号码    
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.IsMobile(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>
+            验证<see cref="T:System.String"/>是否为电话号码    
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.StringValidationHelper.IsInteger(CtCommon.Utility.Validate.ValidationHelper{System.String},System.String)">
+            <summary>
+            验证<see cref="T:System.String"/>是有效的整数  
+            </summary>
+            <param name="current"></param>
+            <param name="errMsg">自定义错误提示信息，如果为null，则会返回默认的错误提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.Validate.Validation">
+            <summary>
+            验证数据合法性
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.Validation.InitValidation``1(``0,System.String)">
+            <summary>
+            初始化数据合法性验证助手
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="argName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.Validate.ValidationHelper`1">
+            <summary>
+            数据合法性验证帮助类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.ValidationHelper`1.#ctor(`0,System.String)">
+            <summary>    
+            创建一个<see cref="T:CtCommon.Utility.Validate.ValidationHelper`1"/>的对象.    
+            </summary>    
+            <param name="value">待验证的参数的值.</param>   
+            /// <param name="name">待验证的参数的名称.</param>    
+        </member>
+        <member name="M:CtCommon.Utility.Validate.ValidationHelper`1.NotDefault">
+             <summary>    
+             验证参数不为其默认值.   
+              </summary>   
+            <returns>this指针以方便链式调用.</returns>
+             <exception cref="T:System.ArgumentException">参数为值类型且为默认值.</exception>    
+             <exception cref="T:System.ArgumentNullException">参数为引用类型且为null.</exception>    
+        </member>
+        <member name="M:CtCommon.Utility.Validate.ValidationHelper`1.CustomRule(System.Func{`0,System.Boolean},System.String)">
+            <summary>    
+            使用自定义方法进行验证.    
+            </summary>    
+            <param name="rule">用以验证的自定义方法.</param>
+            <param name="msg">提示消息</param>
+            <returns>this指针以方便链式调用.</returns>    
+            <exception cref="T:System.Exception">验证失败抛出相应异常.</exception>    
+            <remarks><paramref name="rule"/>的第一个参数为参数值,第二个参数为参数名称.</remarks>    
+        </member>
+        <member name="M:CtCommon.Utility.Validate.ValidationHelper`1.End(System.Action{System.String})">
+            <summary>
+            结束验证
+            </summary>
+            <param name="errMsgAction">对验证失败消息处理</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.ValidationHelper`1.End(System.String@)">
+            <summary>
+            结束验证
+            </summary>
+            <param name="errMsg">验证失败消息</param>
+            <returns>是否验证通过</returns>
+        </member>
+        <member name="M:CtCommon.Utility.Validate.ValidationHelper`1.ToNext``1(``0,System.String)">
+            <summary>
+            转到下一组验证
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <param name="value"></param>
+            <param name="argName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CtCommon.Utility.Validate.ValidationHelper`1.Value">
+            <summary>    
+            获取待验证的参数的值.    
+            </summary>
+        </member>
+        <member name="P:CtCommon.Utility.Validate.ValidationHelper`1.Name">
+            <summary>    
+            获取待验证的参数的名称.    
+            </summary>    
+        </member>
+        <member name="P:CtCommon.Utility.Validate.ValidationHelper`1.Passed">
+            <summary>
+            是否通过验证
+            </summary>
+        </member>
+        <member name="P:CtCommon.Utility.Validate.ValidationHelper`1.Msg">
+            <summary>
+            返回消息
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.VerifyIDCard">
+            <summary>
+            身份证验证帮助类
+            </summary>
+        </member>
+        <member name="F:CtCommon.Utility.VerifyIDCard.address">
+            <summary>
+            省份验证字符串
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.VerifyIDCard.Verify">
+            <summary>
+            是否通过验证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.VerifyIDCard.IsVerified(System.String)">
+            <summary>
+            验证身份证是否合法
+            </summary>
+            <param name="idCard"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.VerifyIDCard.VerifyNumber">
+            <summary>
+            数字验证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.VerifyIDCard.VerifyProvince">
+            <summary>
+            验证省份
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.VerifyIDCard.VerifyBrithDay">
+            <summary>
+            验证生日
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.VerifyIDCard.VerifyBit">
+            <summary>
+            验证校验位
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CtCommon.Utility.VerifyIDCard.VerifyIDCard18">
+            <summary>
+            18位身份证验证
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.VerifyIDCard.VerifyIDCard15">
+            <summary>
+            15位身份证号验证
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.WebControlHelper">
+            <summary>
+            Asp.net用户控件帮助类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.CreatePartailInstance(System.Type)">
+            <summary>
+            获取用户控件片段实例对象
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.GetPartial(System.String)">
+            <summary>
+            获得指定虚拟路径用户控件、页面在当前HTTP上下文执行后的HTML片段
+            </summary>
+            <param name="virtualPath">用户控件、页面文件的虚拟路径 如： ~/controls/header.ascx</param>
+            <returns>用户控件输出字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.GetPartial(System.String,System.Web.HttpContext)">
+            <summary>
+            获得指定虚拟路径用户控件、页面在指定HTTP上下文执行后的HTML片段
+            </summary>
+            <param name="virtualPath">用户控件、页面文件的虚拟路径，如：~/controls/header.ascx</param>
+            <param name="context">HTTP上下文</param>
+            <returns>用户控件输出字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.GetPartial(System.String,System.Object)">
+            <summary>
+            获得指定虚拟路径用户控件、页面在当前HTTP上下文执行后的HTML片段 并且可以通过让片段实例实现 ITouchable 接口来向其传递数据
+            </summary>
+            <param name="partialPath">用户控件、页面文件的虚拟路径，如：~/controls/header.ascx</param>
+            <param name="data">传递的数据，比如可以将Page中的UserID传递给 Header.ascx，则Data值即为UserID值</param>
+            <returns>用户控件输出字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.GetPartial``1(System.String,``0)">
+            <summary>
+            获得指定虚拟路径用户控件、页面在当前HTTP上下文执行后的HTML片段 并且可以通过让片段实例实现 泛型ITouchable 接口来向其传递强类型的数据
+            </summary>
+            <param name="partialPath">用户控件、页面文件的虚拟路径</param>
+            <param name="data">传递的数据</param>
+            <returns>用户控件输出字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.GetPartial(System.String,System.Web.HttpContext,System.Object)">
+            <summary>
+            获得指定虚拟路径用户控件、页面在指定HTTP上下文执行后的HTML片段 并且可以通过让片段实例实现 ITouchable 接口来向其传递数据
+            </summary>
+            <param name="partialPath">用户控件、页面文件的虚拟路径</param>
+            <param name="context">HTTP上下文</param>
+            <param name="data">传递的数据</param>
+            <returns>用户控件输出字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.GetPartial``1(System.String,System.Web.HttpContext,``0)">
+            <summary>
+            获得指定虚拟路径用户控件、页面在指定HTTP上下文执行后的HTML片段 并且可以通过让片段实例实现 泛型ITouchable 接口来向其传递强类型的数据
+            </summary>
+            <param name="partialPath">用户控件、页面文件的虚拟路径</param>
+            <param name="context">HTTP上下文</param>
+            <param name="data">传递的数据</param>
+            <returns>用户控件输出字符串</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.RenderPartial(System.String)">
+            <summary>
+            将指定虚拟路径用户控件、页面在当前HTTP上下文执行后的HTML片段呈递到当前HTTP响应输出
+            </summary>
+            <param name="partialPath">用户控件、页面文件的虚拟路径，如：~/controls/header.ascx</param>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.RenderPartial``1(System.String,``0)">
+            <summary>
+            将指定虚拟路径用户控件、页面在当前HTTP上下文执行后的HTML片段呈递到当前HTTP响应输出 并且可以通过让片段实例实现 泛型ITouchable 接口来向其传递强类型的数据
+            </summary>
+            <param name="partialPath">用户控件、页面文件的虚拟路径，如：~/controls/header.ascx</param>
+            <param name="data">传递的数据</param>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.RenderPartial(System.String,System.Object)">
+            <summary>
+            将指定虚拟路径用户控件、页面在当前HTTP上下文执行后的HTML片段呈递到当前HTTP响应输出 并且可以通过让片段实例实现 ITouchable 接口来向其传递数据
+            </summary>
+            <param name="partialPath">用户控件、页面文件的虚拟路径，如：~/controls/header.ascx</param>
+            <param name="data">传递的数据</param>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.RenderPartial(System.String,System.Web.HttpContext,System.IO.TextWriter)">
+            <summary>
+            将指定虚拟路径用户控件、页面在指定HTTP上下文执行后的HTML片段呈递到指定的输出
+            </summary>
+            <param name="partialPath">用户控件、页面文件的虚拟路径，如：~/controls/header.ascx</param>
+            <param name="context">HTTP上下文</param>
+            <param name="output">输出写入器</param>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.RenderPartial``1(System.String,System.Web.HttpContext,System.IO.TextWriter,``0)">
+             <summary>
+            将指定虚拟路径用户控件、页面在HTTP上下文执行后的HTML片段呈递到响应输出 并且可以通过让片段实例实现 泛型ITouchable 接口来向其传递强类型的数据
+             </summary>
+             <param name="partialPath">用户控件、页面文件的虚拟路径</param>
+             <param name="context">HTTP上下文</param>
+             <param name="output">输出写入器</param>
+             <param name="data">传递的数据</param>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.RenderNoCachePartial(System.String)">
+             <summary>
+            将指定虚拟路径用户控件、页面在HTTP上下文执行后的HTML片段呈递到响应输出 接口来向其传递数据值 并且造成的输出永远不会被输出缓存
+             </summary>
+             <param name="partialPath">用户控件、页面文件的虚拟路径</param>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.RenderNoCachePartial(System.String,System.Object)">
+             <summary>
+            将指定虚拟路径用户控件、页面在HTTP上下文执行后的HTML片段呈递到响应输出 可以通过让片段实例实现 ITouchable 并且造成的输出永远不会被输出缓存
+             </summary>
+             <param name="partialPath">用户控件、页面文件的虚拟路径</param>
+             <param name="data">传递的数据 需要注意的是如果你的第一次响应被输出缓存了 那么data将会永久保持他第一次被赋予的值 直到缓存过期</param>
+        </member>
+        <member name="M:CtCommon.Utility.WebControlHelper.RenderNoCachePartial``1(System.String,``0)">
+             <summary>
+            将指定虚拟路径用户控件、页面在HTTP上下文执行后的HTML片段呈递到响应输出 可以通过让片段实例实现 ITouchable 并且造成的输出永远不会被输出缓存
+             </summary>
+             <param name="partialPath">用户控件、页面文件的虚拟路径</param>
+             <param name="data">传递的数据 需要注意的是如果你的第一次响应被输出缓存了 那么data将会永久保持他第一次被赋予的值 直到缓存过期</param>
+        </member>
+        <member name="T:CtCommon.Utility.WebControlHelper.CachePartail`1">
+            <summary>
+            实现用户控件内容缓存
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:CtCommon.Utility.WebControlHelper.NoCachePartial">
+            <summary>
+            实现用户控件永远无缓存输出
+            </summary>
+        </member>
+        <member name="T:CtCommon.Utility.WebControlHelper.NoCachePartial`1">
+            <summary>
+             实现用户控件永远无缓存输出
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:CtCommon.Utility.WebHelper">
+            <summary>
+            Web相关操作工具类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetClientIP">
+            <summary>
+            获得客户端的ip地址
+            </summary>
+            <returns>客户端IP地址</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetServerIP">
+            <summary>
+            获取服务器IP
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetDomainIP(System.String)">
+            <summary>
+            获得域名对应的IP地址
+            </summary>
+            <param name="domain">域名或IP地址</param>
+            <returns>IP地址</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetMapPath(System.String)">
+            <summary>
+            获取完整路径(获取请求页面物理路径)
+            </summary>
+            <param name="path">请求相对路径</param>
+            <returns>物理路径</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetUrlReferrer">
+            <summary>
+            返回上一个页面的地址(获取请求来源页地址)
+            </summary>
+            <returns>上一个页面的地址</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetRawUrl">
+            <summary>
+            获取当前请求的原始 URL(URL 中域信息之后的部分,包括查询字符串(如果存在))
+            </summary>
+            <returns>原始 URL</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetUrl">
+            <summary>
+            获得当前完整Url地址
+            </summary>
+            <returns>当前完整Url地址</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.IsPost">
+            <summary>
+            判断当前请求是否为POST请求
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.IsGet">
+            <summary>
+            判断是否为GET请求
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.IsAjaxRequest">
+            <summary>
+            判断是否为Ajax请求(支持JQuery Ajax操作)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetQueryString(System.String)">
+            <summary>
+            获得指定Url参数的值
+            </summary>
+            <param name="strName">Url参数</param>
+            <returns>Url参数的值</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetRequestAllQuery(System.Collections.Specialized.NameValueCollection,System.String[],System.String)">
+            <summary>
+            获得URL 所有 Query 参数
+            </summary>
+            <param name="nvc">请求参照集合</param>
+            <param name="denys">拒绝参数Key数组</param>
+            <param name="separator">URL参数之前分隔（默认：&amp;）</param>
+            <returns>Query 参数，如 a=1&amp;b=2...</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetQueryInt(System.String,System.Int32)">
+            <summary>
+            获得指定Url参数的int类型值
+            </summary>
+            <param name="strName">Url参数</param>
+            <param name="defValue">缺省值</param>
+            <returns>Url参数的int类型值</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetQuery``1(System.String,``0)">
+            <summary>
+            获取QueryString中的参数，并返回指定类型
+            </summary>
+            <typeparam name="T">结果数据类型</typeparam>
+            <param name="strName">参数名</param>
+            <param name="defValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetFormString(System.String)">
+            <summary>
+            获取指定的Form参数值
+            </summary>
+            <param name="strName">form参数名</param>
+            <returns>form参数值</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetFromInt(System.String,System.Int32)">
+            <summary>
+            获取制定的Form参数，并返回int值
+            </summary>
+            <param name="strName">form参数名</param>
+            <param name="defValue">默认值</param>
+            <returns>form参数值</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetForm``1(System.String,``0)">
+            <summary>
+            获取Form中的参数值，并返回指定类型
+            </summary>
+            <typeparam name="T">结果数据类型</typeparam>
+            <param name="strName">参数名</param>
+            <param name="defValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetUrlQueryString(System.String,System.String,System.Char,System.Text.Encoding)">
+            <summary>
+            根据参数集，获取参数名对应的值
+            </summary>
+            <param name="paraName">参数名</param>
+            <param name="url">Url地址</param>
+            <param name="splitChar">分隔符</param>
+            <param name="encoding">Url参数解码时，所用到</param>
+            <returns>参数名对应的值</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetUrlQueryString(System.String,System.String)">
+            <summary>
+            根据参数集，获取参数名对应的值
+            </summary>
+            <param name="paraName">参数名</param>
+            <param name="url">Url地址</param>
+            <returns>参数名对应的值</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetUrlQueryString(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            根据参数集，获取参数名对应的值
+            </summary>
+            <param name="paraName">参数名</param>
+            <param name="url">Url地址</param>
+            <param name="encoding">Url解码时，所用到</param>
+            <returns>参数名对应的值</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetUrlQueryString(System.String)">
+            <summary>
+            根据参数集，获取参数名对应的值
+            </summary>
+            <param name="paraName">参数名</param>
+            <returns>参数名对应的值</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetUrlQueryString(System.String,System.Text.Encoding)">
+            <summary>
+            根据参数集，获取参数名对应的值
+            </summary>
+            <param name="paraName">参数名</param>
+            <param name="encoding">Url解码时，所用到</param>
+            <returns>参数名对应的值</returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.ToQueryString(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            转换成URL参数
+            </summary>
+            <param name="dictionary">参数键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetTextFromHTML(System.String)">
+            <summary>
+            从HTML中获取文本,保留br,p,img
+            </summary>
+            <param name="html">HTML内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.GetEncodeFileName(System.String)">
+            <summary>
+            根据不同浏览器判断是否需要对文件名进行编码
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CtCommon.Utility.WebHelper.ResponseFile(System.String,System.String,System.String)">
+            <summary>
+            以指定的ContentType输出指定文件
+            </summary>
+            <param name="filepath">文件路径</param>
+            <param name="filename">输出的文件名</param>
+            <param name="filetype">将文件输出时设置的ContentType  "application/octet-stream"表示输出文件即出现下载对话框</param>
+        </member>
+        <member name="T:CtCommon.Utility.XmlHelper">
+            <summary>
+            XML操作帮助类
+            </summary>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.GetXmlNodeByXpath(System.String,System.String)">
+            <summary>
+            选择匹配XPath表达式的第一个节点XmlNode.
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名")</param>
+            <returns>返回XmlNode</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.GetXmlNodeListByXpath(System.String,System.String)">
+            <summary>
+            选择匹配XPath表达式的节点列表XmlNodeList.
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名")</param>
+            <returns>返回XmlNodeList</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.GetXmlAttribute(System.String,System.String,System.String)">
+            <summary>
+            选择匹配XPath表达式的第一个节点的匹配xmlAttributeName的属性XmlAttribute.
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
+            <param name="xmlAttributeName">要匹配xmlAttributeName的属性名称</param>
+            <returns>返回xmlAttributeName</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.CreateXmlDocument(System.String,System.String)">
+            <summary>
+            创建一个XML文档
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="rootNodeName">XML文档根节点名称(须指定一个根节点名称)</param>
+            <returns>成功返回true,失败返回false</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.CreateXmlDocument(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建一个XML文档
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="rootNodeName">XML文档根节点名称(须指定一个根节点名称)</param>
+            <param name="version">XML文档版本号(必须为:"1.0")</param>
+            <param name="encoding">XML文档编码方式</param>
+            <param name="standalone">该值必须是"yes"或"no",如果为null,Save方法不在XML声明上写出独立属性</param>
+            <returns>成功返回true,失败返回false</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.CreateXmlNodeByXPath(System.String,System.String,System.String,System.String)">
+            <summary>
+            依据匹配XPath表达式的第一个节点来创建它的子节点(如果此节点已存在则追加一个新的同名节点)
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
+            <param name="xmlNodeName">要匹配xmlNodeName的节点名称</param>
+            <param name="innerText">节点文本值</param>
+            <returns>成功返回true,失败返回false</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.CreateXmlNodeByXPath(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            依据匹配XPath表达式的第一个节点来创建它的子节点(如果此节点已存在则追加一个新的同名节点)
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
+            <param name="xmlNodeName">要匹配xmlNodeName的节点名称</param>
+            <param name="innerText">节点文本值</param>
+            <param name="xmlAttributeName">要匹配xmlAttributeName的属性名称</param>
+            <param name="value">属性值</param>
+            <returns>成功返回true,失败返回false</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.CreateOrUpdateXmlNodeByXPath(System.String,System.String,System.String,System.String)">
+            <summary>
+            依据匹配XPath表达式的第一个节点来创建或更新它的子节点(如果节点存在则更新,不存在则创建)
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
+            <param name="xmlNodeName">要匹配xmlNodeName的节点名称</param>
+            <param name="innerText">节点文本值</param>
+            <returns>成功返回true,失败返回false</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.CreateOrUpdateXmlAttributeByXPath(System.String,System.String,System.String,System.String)">
+            <summary>
+            依据匹配XPath表达式的第一个节点来创建或更新它的属性(如果属性存在则更新,不存在则创建)
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
+            <param name="xmlAttributeName">要匹配xmlAttributeName的属性名称</param>
+            <param name="value">属性值</param>
+            <returns>成功返回true,失败返回false</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.DeleteXmlNodeByXPath(System.String,System.String)">
+            <summary>
+            删除匹配XPath表达式的第一个节点(节点中的子元素同时会被删除)
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
+            <returns>成功返回true,失败返回false</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.DeleteXmlAttributeByXPath(System.String,System.String,System.String)">
+            <summary>
+            删除匹配XPath表达式的第一个节点中的匹配参数xmlAttributeName的属性
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
+            <param name="xmlAttributeName">要删除的xmlAttributeName的属性名称</param>
+            <returns>成功返回true,失败返回false</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.DeleteAllXmlAttributeByXPath(System.String,System.String)">
+            <summary>
+            删除匹配XPath表达式的第一个节点中的所有属性
+            </summary>
+            <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
+            <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
+            <returns>成功返回true,失败返回false</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.Serialize``1(``0)">
+            <summary>
+            XML序列化对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="t">对象</param>
+            <returns>XML格式数据</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.SerializeDataTable(System.Data.DataTable,System.String)">
+            <summary>
+            XML序列化对象(Datatable)
+            </summary>
+            <param name="dt">DataTable</param>
+            <param name="modelName">对象名</param>
+            <returns>XML格式数据</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.Deserialize``1(System.String)">
+            <summary>
+            XML反序列化(支持泛型类型)
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="xml">XML格式数据</param>
+            <returns>对象</returns>
+        </member>
+        <member name="M:CtCommon.Utility.XmlHelper.DeserializeDataTable(System.String)">
+            <summary> 
+            反序列化DataTable 
+            </summary> 
+            <param name="xml">XML格式数据</param> 
+            <returns>DataTable</returns> 
+        </member>
+    </members>
+</doc>

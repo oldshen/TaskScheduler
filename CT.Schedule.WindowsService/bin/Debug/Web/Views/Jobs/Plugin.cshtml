@@ -1,0 +1,26 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+<div class="panel panel-default">
+    <div class="panel-heading">插件列表&nbsp;&nbsp;<a class="glyphicon glyphicon-plus" aria-hidden="true"></a></div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>插件ID</th>
+                <th>插件名称</th>
+                <th>插件类</th>
+                <th>回调地址</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model){
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.AssemblyInfo</td>
+                <td>@item.NotifyUrl</td>
+                <td><a class="glyphicon glyphicon-pencil" href="#" aria-hidden="true"></a> <a  href="#" class="glyphicon glyphicon-trash" aria-hidden="true"></a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

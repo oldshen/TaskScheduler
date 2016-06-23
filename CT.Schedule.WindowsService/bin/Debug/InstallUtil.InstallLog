@@ -1,0 +1,131 @@
+﻿
+正在运行事务处理安装。
+
+正在开始安装的“安装”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.vshost.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.vshost.InstallLog。
+
+“安装”阶段已成功完成，正在开始“提交”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.vshost.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.vshost.InstallLog。
+
+“提交”阶段已成功完成。
+
+已完成事务处理安装。
+
+正在运行事务处理安装。
+
+正在开始安装的“安装”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.InstallLog。
+
+在“安装”阶段发生异常。
+System.Security.SecurityException: 未找到源，但未能搜索某些或全部事件日志。  不可访问的日志: Security。
+
+正在开始安装的“回滚”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.InstallLog。
+
+“回滚”阶段已成功完成。
+
+已完成事务处理安装。
+
+正在运行事务处理安装。
+
+正在开始安装的“安装”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.InstallLog。
+
+在“安装”阶段发生异常。
+System.Security.SecurityException: 未找到源，但未能搜索某些或全部事件日志。  不可访问的日志: Security。
+
+正在开始安装的“回滚”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.InstallLog。
+
+“回滚”阶段已成功完成。
+
+已完成事务处理安装。
+
+正在运行事务处理安装。
+
+正在开始安装的“安装”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.vshost.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.vshost.InstallLog。
+
+“安装”阶段已成功完成，正在开始“提交”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.vshost.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.vshost.InstallLog。
+
+“提交”阶段已成功完成。
+
+已完成事务处理安装。
+
+正在运行事务处理安装。
+
+正在开始安装的“安装”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.InstallLog。
+
+在“安装”阶段发生异常。
+System.Security.SecurityException: 未找到源，但未能搜索某些或全部事件日志。  不可访问的日志: Security。
+
+正在开始安装的“回滚”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.InstallLog。
+
+“回滚”阶段已成功完成。
+
+已完成事务处理安装。
+
+正在运行事务处理安装。
+
+正在开始安装的“安装”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.InstallLog。
+
+在“安装”阶段发生异常。
+System.Security.SecurityException: 未找到源，但未能搜索某些或全部事件日志。  不可访问的日志: Security。
+
+正在开始安装的“回滚”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.InstallLog。
+
+“回滚”阶段已成功完成。
+
+已完成事务处理安装。
+
+正在运行事务处理安装。
+
+正在开始安装的“安装”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.InstallLog。
+
+“安装”阶段已成功完成，正在开始“提交”阶段。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.InstallLog。
+
+“提交”阶段已成功完成。
+
+已完成事务处理安装。
+
+
+正在开始卸载。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.vshost.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.WindowsService\bin\Debug\NeedIndex.Schedule.WindowsService.vshost.InstallLog。
+
+卸载完成。
+
+
+正在开始卸载。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.InstallLog。
+
+卸载完成。
+
+
+正在开始卸载。
+查看日志文件的内容以获得 F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.exe 程序集的进度。
+该文件位于 F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.InstallLog。
+
+卸载完成。

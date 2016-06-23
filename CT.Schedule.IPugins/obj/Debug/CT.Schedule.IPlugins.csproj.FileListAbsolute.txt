@@ -1,0 +1,14 @@
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\bin\Debug\NeedIndex.Schedule.IPlugins.dll
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\bin\Debug\NeedIndex.Schedule.IPlugins.pdb
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\bin\Debug\log4net.dll
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\bin\Debug\log4net.xml
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\obj\Debug\NeedIndex.Schedule.IPlugins.dll
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\obj\Debug\NeedIndex.Schedule.IPlugins.pdb
+F:\开发项目\任务调度服务\TaskScheduler\NeedIndex.Schedule.IPugins\obj\Debug\CT.Schedule.IPlugins.csprojResolveAssemblyReference.cache
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IPugins\bin\Debug\CT.Schedule.IPlugins.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IPugins\bin\Debug\CT.Schedule.IPlugins.pdb
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IPugins\bin\Debug\log4net.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IPugins\bin\Debug\log4net.xml
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IPugins\obj\Debug\CT.Schedule.IPlugins.csprojResolveAssemblyReference.cache
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IPugins\obj\Debug\CT.Schedule.IPlugins.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.IPugins\obj\Debug\CT.Schedule.IPlugins.pdb

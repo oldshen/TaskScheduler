@@ -1,0 +1,16 @@
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\CT.Schedule.Infrastructure.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\CT.Schedule.Infrastructure.pdb
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\log4net.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\Microsoft.Practices.Unity.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\log4net.xml
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\Microsoft.Practices.Unity.xml
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\obj\Debug\CT.Schedule.Infrastructure.csprojResolveAssemblyReference.cache
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\obj\Debug\CT.Schedule.Infrastructure.dll
+F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.Infrastructure\obj\Debug\CT.Schedule.Infrastructure.pdb

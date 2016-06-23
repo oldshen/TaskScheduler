@@ -1,0 +1,9 @@
+F:\开发项目\任务调度服务\TaskScheduler\TestPlugin\bin\Debug\TestPlugin.dll
+F:\开发项目\任务调度服务\TaskScheduler\TestPlugin\bin\Debug\TestPlugin.pdb
+F:\开发项目\任务调度服务\TaskScheduler\TestPlugin\bin\Debug\CT.Schedule.IPlugins.dll
+F:\开发项目\任务调度服务\TaskScheduler\TestPlugin\bin\Debug\log4net.dll
+F:\开发项目\任务调度服务\TaskScheduler\TestPlugin\bin\Debug\CT.Schedule.IPlugins.pdb
+F:\开发项目\任务调度服务\TaskScheduler\TestPlugin\bin\Debug\log4net.xml
+F:\开发项目\任务调度服务\TaskScheduler\TestPlugin\obj\Debug\TestPlugin.csprojResolveAssemblyReference.cache
+F:\开发项目\任务调度服务\TaskScheduler\TestPlugin\obj\Debug\TestPlugin.dll
+F:\开发项目\任务调度服务\TaskScheduler\TestPlugin\obj\Debug\TestPlugin.pdb

@@ -1,0 +1,35 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+
+<form action="/login?returnUrl=@Request.Query["returnUrl"]" method="post" class="panel form-horizontal">
+    <div style="width: auto;min-width:350px;  display: table;  margin-left: auto;  margin-right: auto;">
+        <div class="alert alert-danger" role="alert" style="display:@(Model!=null?"":"none")">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            @(Model!=null?Model.ToString():"")
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="panel-title">管理员登录</span>
+            </div>
+            <div class="panel-body">
+                <div class="row form-group">
+                    <label class="col-sm-4 control-label">用户名:</label>
+                    <div class="col-sm-8">
+                        <input name="UserName" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-sm-4 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                    <div class="col-sm-8">
+                        <input name="password" class="form-control" type="password">
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-right">
+                <button class="btn btn-primary">登录</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>

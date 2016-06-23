@@ -1,0 +1,12 @@
+﻿正在卸载程序集“F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.InstallLog
+   assemblypath = F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.exe
+没有 RunInstallerAttribute.Yes 的公共安装程序。在 F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.exe 程序集中应该可以找到“Yes”特性。
+正在卸载程序集“F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.InstallLog
+   assemblypath = F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.exe
+没有 RunInstallerAttribute.Yes 的公共安装程序。在 F:\开发项目\任务调度服务\TaskScheduler\CT.Schedule.WindowsService\bin\Debug\CT.Schedule.WindowsService.vshost.exe 程序集中应该可以找到“Yes”特性。
